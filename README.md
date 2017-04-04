@@ -1,5 +1,10 @@
 # Instructions
 
+## Setup
+
+Run `npm install` from project root.
+
+## Run
 Run with command `npm start` and go to `localhost:3000` to play.
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
