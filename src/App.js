@@ -1,13 +1,27 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import Mousetrap from 'mousetrap';
 import './App.css';
+import {boardFromString, moveDown, moveUp, moveRight, moveLeft} from './boardFunctions';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        board: this.generateBoard(props.initialValues, props.sideLength)
+        board: boardFromString(props.initialValues)
     };
+  }
+  componentDidMount() {
+    Mousetrap.bind(['up'], this.handleUp);
+    Mousetrap.bind(['down'], this.handleDown);
+    Mousetrap.bind(['left'], this.handleLeft);
+    Mousetrap.bind(['right'], this.handleRight);
+  }
+  componentWillUnmount() {
+    Mousetrap.unbind(['up'], this.handleUp);
+    Mousetrap.unbind(['down'], this.handleDown);
+    Mousetrap.unbind(['left'], this.handleLeft);
+    Mousetrap.unbind(['right'], this.handleRight);
   }
   render() {
     return (
@@ -18,31 +32,33 @@ class App extends Component {
         </div>
         <div className="App-intro">
           <table>
-            {this.state.board.map((row, rowIndex) =>
-              <tr key={rowIndex}>
-                {row.map((cellValue, colIndex) =>
-                  <td key={colIndex}>
-                    {cellValue}
-                  </td>
-                )}
-              </tr>
-            )}
+            <tbody>
+              {this.state.board.map((row, rowIndex) =>
+                <tr key={rowIndex}>
+                  {row.map((cellValue, colIndex) =>
+                    <td key={colIndex}>
+                      {cellValue}
+                    </td>
+                  )}
+                </tr>
+              )}
+            </tbody>
           </table>
-      </div>
+        </div>
       </div>
     );
   }
-  generateBoard(initialValues, sideLength){
-    var board = []
-    for (var i = 0; i < sideLength; i++){
-      board[i] = []
-      for (var j = 0; j < sideLength; j++) {
-        var valueIndex = (sideLength * i) + j
-        board[i][j] = initialValues[valueIndex]
-      }
-    }
-
-    return board
+  handleUp = () => {
+    this.setState({ board: moveUp(this.state.board) })
+  }
+  handleDown = () => {
+    this.setState({ board: moveDown(this.state.board) })
+  }
+  handleLeft = () => {
+    this.setState({ board: moveLeft(this.state.board) })
+  }
+  handleRight = () => {
+    this.setState({ board: moveRight(this.state.board) })
   }
 }
 
