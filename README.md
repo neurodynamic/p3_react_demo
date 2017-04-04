@@ -3,6 +3,7 @@
 Run with command `npm start` and go to `localhost:3000` to play.
 
 
+# create-react-app info
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
