@@ -13,6 +13,9 @@ export function boardFromString(string) {
 
 export function addNewNumbers(board) {
   var originalZeroCount = zeroCount(board)
+
+  // Generate two random numbers from the total number of zeroes
+  // on the board.
   var targetCell1 = getRandomIntInclusive(0, originalZeroCount - 1)
   var targetCell2 = getRandomIntInclusive(0, originalZeroCount - 2)
 
@@ -20,8 +23,9 @@ export function addNewNumbers(board) {
   if (targetCell2 >= targetCell1) {
     targetCell2++
   }
-  console.log("targetCell1:",targetCell1)
-  console.log("targetCell2:",targetCell2)
+
+  // Insert new 2s or 4s in the board based on which zero's
+  // place they are taking
   var zeroesSoFar = 0
   for (var i = 0; i < board.length; i++) {
     for (var j = 0; j < board.length; j++) {
