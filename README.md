@@ -2,8 +2,9 @@
 
 Run with command `npm start` and go to `localhost:3000` to play.
 
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
-# create-react-app info
+# create-react-app stuff
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
