@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import Mousetrap from 'mousetrap';
 import './App.css';
-import {boardFromString, moveDown, moveUp, moveRight, moveLeft} from './boardFunctions';
+import {boardFromString, moveDown, moveUp, moveRight, moveLeft, addNewNumbers} from './boardFunctions';
 
 class App extends Component {
   constructor(props) {
@@ -34,10 +34,10 @@ class App extends Component {
           <table>
             <tbody>
               {this.state.board.map((row, rowIndex) =>
-                <tr key={rowIndex}>
+                <tr key={rowIndex} className="grid-row">
                   {row.map((cellValue, colIndex) =>
-                    <td key={colIndex}>
-                      {cellValue}
+                    <td key={colIndex} className="grid-cell">
+                      {cellValue || ' '}
                     </td>
                   )}
                 </tr>
@@ -50,15 +50,19 @@ class App extends Component {
   }
   handleUp = () => {
     this.setState({ board: moveUp(this.state.board) })
+    this.setState({ board: addNewNumbers(this.state.board) })
   }
   handleDown = () => {
     this.setState({ board: moveDown(this.state.board) })
+    this.setState({ board: addNewNumbers(this.state.board) })
   }
   handleLeft = () => {
     this.setState({ board: moveLeft(this.state.board) })
+    this.setState({ board: addNewNumbers(this.state.board) })
   }
   handleRight = () => {
     this.setState({ board: moveRight(this.state.board) })
+    this.setState({ board: addNewNumbers(this.state.board) })
   }
 }
 

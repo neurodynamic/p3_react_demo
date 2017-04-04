@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 // import {boardFromString, moveRowRight} from './boardFunctions;
-import {boardFromString, moveRowRight, moveDown, moveUp, moveRight, moveLeft, transpose} from './boardFunctions';
+import {boardFromString, moveRowRight, moveDown, moveUp, moveRight, moveLeft, addNewNumbers} from './boardFunctions';
 
 describe('boardFromString', () => {
   it('creates a 2d array with values divided into rows', () => {
@@ -128,7 +128,8 @@ describe('boardFromString', () => {
         newBoard[3][0],
         newBoard[3][1]
       ]
-
+      console.log("newBoard:",newBoard)
+      console.log("formerlyEmptyCells:",formerlyEmptyCells)
       var newNumbers = formerlyEmptyCells.filter(function(cell) { return cell != 0 })
       var acceptableCellValues = formerlyEmptyCells.filter(function(cell) { return cell == 0 || cell ==2 || cell == 4 })
 
