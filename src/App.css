@@ -16,6 +16,40 @@
 
 .App-intro {
   font-size: large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-cell {
+  width: 106.25px;
+  height: 106.25px;
+  margin: 7px;
+  float: left;
+  border-radius: 3px;
+  background: rgba(238, 228, 218, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 107px;
+  height: 107px;
+  line-height: 107px;
+  font-size: 55px;
+  background-color: #eee4da;
+  color: #776e65;
+}
+
+.grid-row {
+  margin-bottom: 15px;
+  background-color: #bbada0;
+  margin: 0;
+  border: none;
+}
+
+table, tbody {
+  background-color: #bbada0;
+  border-radius: 10px;
+  margin: 10px;
 }
 
 @keyframes App-logo-spin {
