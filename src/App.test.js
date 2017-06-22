@@ -29,6 +29,11 @@ describe('boardFromString', () => {
       expect(moveRowRight(row)).toEqual([0,0,0,4]);
     });
 
+    it("should only sum once", function() {
+      var row = [2,2,2,2]
+      expect(moveRowRight(row)).toEqual([0,0,4,4]);
+    });
+
     it("should sum nonadjacent neighbors", function() {
       var row = [2,0,0,2]
       expect(moveRowRight(row)).toEqual([0,0,0,4]);
